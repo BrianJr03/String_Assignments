@@ -10,7 +10,7 @@ public class StrAssignments {
 
     @Test
     void palindromeTest() { // 1.
-        assertTrue(Palindrome.isPalindrome("racecar"));
+        assertTrue(Str.isPalindrome("racecar"));
     }
 
     @Test
@@ -68,26 +68,6 @@ public class StrAssignments {
     }
 }
 
-
-@SuppressWarnings("all")
-class Palindrome {
-    // 1. Check if a given string is a palindrome
-    // without finding the reverse of the string
-    static boolean isPalindrome(String str) {
-        String lower = str.toLowerCase();
-        int i = 0; // Pointer that starts at beginning of str
-        int j = lower.length() - 1; // Pointer that starts at end of str
-        while (j > i) {
-            // As j is decremented & i is incremented, each corresponding char
-            // must be equal in order for the str to be a palindrome
-            if (lower.charAt(j) != lower.charAt(i))
-                return false;
-            j--;
-            i++;
-        }
-        return true;
-    }
-}
 
 @SuppressWarnings("all")
 class Char {
@@ -239,6 +219,23 @@ class Str {
             sb.append(strCharArray[i]);
         }
         return new String(sb);
+    }
+
+    // 1. Check if a given string is a palindrome
+    // without finding the reverse of the string
+    static boolean isPalindrome(String str) {
+        String lower = str.toLowerCase();
+        int i = 0; // Pointer that starts at beginning of str
+        int j = lower.length() - 1; // Pointer that starts at end of str
+        while (j > i) {
+            // As j is decremented & i is incremented, each corresponding char
+            // must be equal in order for the str to be a palindrome
+            if (lower.charAt(j) != lower.charAt(i))
+                return false;
+            j--;
+            i++;
+        }
+        return true;
     }
 
     // 7. Remove characters from the first string which are present in the scecond string
