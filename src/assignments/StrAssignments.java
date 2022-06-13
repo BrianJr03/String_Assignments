@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SuppressWarnings("all")
-public class StringAssignments {
+public class StrAssignments {
 
     @Test
     void palindromeTest() { // 1.
@@ -41,23 +41,23 @@ public class StringAssignments {
 
     @Test
     void removeCharsFirstStrTest() { // 7.
-        assertEquals(String.removeCharsFirstStr("", ""), "");
+        assertEquals(Str.removeCharsFirstStr("", ""), "");
     }
 
     @Test
     void isRotatedTest() { // 8.
-        assertTrue(String.isRotated("AndroidDev", "DevAndroid"));
+        assertTrue(Str.isRotated("AndroidDev", "DevAndroid"));
     }
 
     @Test
     void reverseEachWordTest() { // 10.
-        assertEquals(String.reverseEachWord("Android is best ! si diordnA tseb ?"),
+        assertEquals(Str.reverseEachWord("Android is best ! si diordnA tseb ?"),
                 "diordnA si tseb ! is Android best ?");
     }
 
     @Test
     void findLongestWordTest() { // 11.
-        assertEquals(String.findLongestWord(" Hello how are you."),
+        assertEquals(Str.findLongestWord(" Hello how are you."),
                 "Hello");
     }
 
@@ -73,8 +73,8 @@ public class StringAssignments {
 class Palindrome {
     // 1. Check if a given string is a palindrome
     // without finding the reverse of the string
-    static boolean isPalindrome(java.lang.String str) {
-        java.lang.String lower = str.toLowerCase();
+    static boolean isPalindrome(String str) {
+        String lower = str.toLowerCase();
         int i = 0; // Pointer that starts at beginning of str
         int j = lower.length() - 1; // Pointer that starts at end of str
         while (j > i) {
@@ -92,7 +92,7 @@ class Palindrome {
 @SuppressWarnings("all")
 class Char {
     // 2. Count the number of occurrences of each char in the input string
-    static HashMap<Character, Integer> getEachCharCount(java.lang.String str) {
+    static HashMap<Character, Integer> getEachCharCount(String str) {
         HashMap<Character, Integer> map = new HashMap<>();
 
         // Loop through string
@@ -126,7 +126,7 @@ class Char {
     }
 
     // 3. Find the most recurring char in the input string
-    static char getMostFrequentChar(java.lang.String str) {
+    static char getMostFrequentChar(String str) {
         HashMap<Character, Integer> map = new HashMap<>();
         Set<Character> keys = map.keySet();
 
@@ -160,7 +160,7 @@ class Char {
     }
 
     // 4. Remove duplicate chars from the input string
-    static java.lang.String removeDuplicateChars(java.lang.String str) {
+    static String removeDuplicateChars(String str) {
         StringBuilder sb = new StringBuilder();
         Set<Character> set = new LinkedHashSet<>();
         for(char c : str.toCharArray()) {
@@ -169,11 +169,11 @@ class Char {
         for (char ele : set) {
             sb.append(ele);
         }
-        return new java.lang.String(sb);
+        return new String(sb);
     }
 
     // 5. Print all the duplicate chars in the input string
-    static void printAllDuplicateChars(java.lang.String str) {
+    static void printAllDuplicateChars(String str) {
         HashMap<Character, Integer> map = new HashMap<>();
         Set<Character> keys = map.keySet();
 
@@ -204,7 +204,7 @@ class Char {
     }
 
     // 6. Find first mon-repeating character in the string
-    static char getFirstNonRepeatingChar(java.lang.String str) {
+    static char getFirstNonRepeatingChar(String str) {
         char ch = '.';
         for (char c : str.toCharArray()) {
             if (str.indexOf(c) == str.lastIndexOf(c)) {
@@ -215,7 +215,7 @@ class Char {
     }
 
     // 12. Remove the same consecutive char from the input string
-    static java.lang.String removeConsecutiveChars(java.lang.String str) {
+    static String removeConsecutiveChars(String str) {
         str = str.toLowerCase();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
@@ -226,29 +226,29 @@ class Char {
             }
         }
         sb.append(str.toCharArray()[str.length() - 1]);
-        return new java.lang.String(sb);
+        return new String(sb);
     }
 }
 
 @SuppressWarnings("all")
-class String {
-    static java.lang.String reverseString(java.lang.String str) {
+class Str {
+    static String reverseString(String str) {
         StringBuilder sb = new StringBuilder();
         char[] strCharArray = str.toCharArray();
         for (int i = strCharArray.length - 1; i >= 0; i--) {
             sb.append(strCharArray[i]);
         }
-        return new java.lang.String(sb);
+        return new String(sb);
     }
 
     // 7. Remove characters from the first string which are present in the scecond string
-    static java.lang.String removeCharsFirstStr(java.lang.String str1, java.lang.String str2) {
+    static String removeCharsFirstStr(String str1, String str2) {
         StringBuilder sb = new StringBuilder();
-        return new java.lang.String(sb);
+        return new String(sb);
     }
 
     // 8. Check if strings are rotations of each other
-    public static boolean isRotated(java.lang.String str1, java.lang.String str2) {
+    public static boolean isRotated(String str1, String str2) {
         // The two lengths must be equal
         if (str1.length() != str2.length()) {
             return false;
@@ -275,22 +275,22 @@ class String {
     }
 
     // 10. Reverse each word in a given string
-    static java.lang.String reverseEachWord(java.lang.String str) {
+    static String reverseEachWord(String str) {
         StringBuilder reversedSentence = new StringBuilder();
-        java.lang.String[] words = str.split(" ");
-        for (java.lang.String word : words) {
+        String[] words = str.split(" ");
+        for (String word : words) {
             word = reverseString(word);
             reversedSentence.append(word).append(" ");
         }
-        return new java.lang.String(reversedSentence).trim();
+        return new String(reversedSentence).trim();
     }
 
     // 11. Find the word with the longest length in the given sentence
-    static java.lang.String findLongestWord(java.lang.String str) {
+    static String findLongestWord(String str) {
         int longest = 0;
-        java.lang.String longestWord = "";
-        java.lang.String[] words = str.split(" ");
-        for (java.lang.String word : words) {
+        String longestWord = "";
+        String[] words = str.split(" ");
+        for (String word : words) {
             if (word.length() > longest) {
                 longest = word.length();
                 longestWord = word;
